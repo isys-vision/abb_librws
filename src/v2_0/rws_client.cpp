@@ -52,6 +52,7 @@
 #include <utility>
 
 #include <unistd.h>
+#include <ros/ros.h>
 
 namespace abb :: rws :: v2_0
 {
@@ -201,9 +202,13 @@ void RWSClient::setIOSignal(const std::string& iosignal, const std::string& valu
 {
   try
   {
+    ROS_WARN("REACHED SET IO SIGNAL");
     std::string uri = generateIOSignalPath(iosignal) + "/" + Queries::ACTION_SET;
+    ROS_WARN("Uri is: %s", uri.c_str());
     std::string content = Identifiers::LVALUE + "=" + value;
+    ROS_WARN("Content is: %s", content.c_str());
     std::string content_type = "application/x-www-form-urlencoded;v=2.0";
+    ROS_WARN("Content type is: %s", content_type.c_str());
 
     httpPost(uri, content, content_type);
   }
@@ -276,6 +281,7 @@ void RWSClient::registerRemoteUser(const std::string& username,
 
 RWSClient::RWSResult RWSClient::parseContent(const POCOResult& poco_result)
 {
+  ROS_WARN("RWS Result Content is: %s", poco_result.content().c_str());
   return parser_.parseString(poco_result.content());
 }
 

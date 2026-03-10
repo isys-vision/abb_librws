@@ -10,6 +10,9 @@
   <author>Jon Tjerngren</author>
 
   <buildtool_depend>cmake</buildtool_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
 
   <depend version_gte="1.4.3">libpoco-dev</depend>
 
