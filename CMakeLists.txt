@@ -29,6 +29,22 @@ find_package(Poco 1.4.3 REQUIRED COMPONENTS Foundation Net Util XML NetSSL)
 ## Find boost exception library
 find_package(Boost REQUIRED COMPONENTS exception log log_setup)
 
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  std_msgs
+)
+
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS roscpp std_msgs
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+)
+
 ###########
 ## Build ##
 ###########
