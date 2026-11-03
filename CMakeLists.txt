@@ -27,7 +27,7 @@ endif()
 find_package(Poco 1.4.3 REQUIRED COMPONENTS Foundation Net Util XML NetSSL)
 
 ## Find boost exception library
-find_package(Boost REQUIRED COMPONENTS exception log log_setup)
+find_package(Boost CONFIG REQUIRED COMPONENTS exception log log_setup)
 
 ###########
 ## Build ##
